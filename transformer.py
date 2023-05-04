@@ -48,7 +48,7 @@ from sklearn import metrics
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix
 
 
-train_df = pd.read_csv("discordscam.csv",encoding='cp949')
+train_df = pd.read_csv("../discordscam.csv",encoding='cp949')
 
 max_features = 300000
 max_features_2 = 100000
