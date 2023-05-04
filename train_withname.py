@@ -36,6 +36,7 @@ model = tf.keras.Model(inputs=[input_layer_1, input_layer_2], outputs=output_lay
 # Compile the model
 model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"])
 # Fit the model
+print("Train chatting data with user name")
 model.fit(x=[train_X, train_X_name], y=train_y, batch_size=32, epochs=3, validation_data=([val_X, val_X_name], val_y))
 pred = model.predict([test_X, test_X_name])
 pred_1d=pred[:,1].flatten()
