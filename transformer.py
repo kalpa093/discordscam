@@ -14,6 +14,7 @@ from scipy import stats
 from scipy.sparse import hstack, csr_matrix
 from sklearn.model_selection import train_test_split, cross_val_score
 from wordcloud import WordCloud
+from collections import Sequence
 from collections import Counter
 from nltk.corpus import stopwords
 from nltk.util import ngrams
