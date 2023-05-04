@@ -20,8 +20,9 @@ outputs = tf.keras.layers.Dense(number_of_classes, activation="softmax")(x)
 model = tf.keras.Model(inputs=inputs, outputs=outputs)
 
 model.compile("adam", "sparse_categorical_crossentropy", metrics=["accuracy"])
-model.fit(train_X, train_y, batch_size=32, epochs=3, validation_data=(val_X, val_y))
 
+print("Train chatting data")
+model.fit(train_X, train_y, batch_size=32, epochs=3, validation_data=(val_X, val_y))
 pred = model.predict(test_X)
 pred_1d=pred[:,1].flatten()
 pred_class = np.where(pred_1d>0.5,1,0)
