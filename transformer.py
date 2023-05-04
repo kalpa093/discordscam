@@ -47,7 +47,7 @@ from sklearn import metrics
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix
 
 
-train_df = pd.read_csv("../nameandurl.csv",encoding='cp949')
+train_df = pd.read_csv("../discordscam.csv",encoding='cp949')
 
 max_features = 300000
 max_features_2 = 100000
@@ -221,7 +221,7 @@ model = tf.keras.Model(inputs=inputs, outputs=outputs)
 
 model.compile("adam", "sparse_categorical_crossentropy", metrics=["accuracy"])
 print("Train chatting data")
-model.fit(train_X, train_y, batch_size=32, epochs=5, validation_data=(val_X, val_y))
+model.fit(train_X, train_y, batch_size=32, epochs=3, validation_data=(val_X, val_y))
 pred = model.predict(test_X)
 pred_1d=pred[:,1].flatten()
 pred_class = np.where(pred_1d>0.5,1,0)
@@ -275,7 +275,7 @@ model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=
 
 # Fit the model
 print("Train chatting data with user name")
-model.fit(x=[train_X, train_X_name], y=train_y, batch_size=32, epochs=4, validation_data=([val_X, val_X_name], val_y))
+model.fit(x=[train_X, train_X_name], y=train_y, batch_size=32, epochs=3, validation_data=([val_X, val_X_name], val_y))
 pred = model.predict([test_X, test_X_name])
 pred_1d=pred[:,1].flatten()
 pred_class = np.where(pred_1d>0.5,1,0)
@@ -329,7 +329,7 @@ model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=
 
 # Fit the model
 print("Train chatting data with user name and url")
-model.fit(x=[train_X, train_X_name, train_X_url], y=train_y, batch_size=32, epochs=4, validation_data=([val_X, val_X_name, val_X_url], val_y))
+model.fit(x=[train_X, train_X_name, train_X_url], y=train_y, batch_size=32, epochs=3, validation_data=([val_X, val_X_name, val_X_url], val_y))
 pred = model.predict([test_X, test_X_name, test_X_url])
 pred_1d=pred[:,1].flatten()
 pred_class = np.where(pred_1d>0.5,1,0)
@@ -383,7 +383,7 @@ model.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=
 
 # Fit the model
 print("Train chatting data with url")
-model.fit(x=[train_X, train_X_url], y=train_y, batch_size=32, epochs=4, validation_data=([val_X, val_X_url], val_y))
+model.fit(x=[train_X, train_X_url], y=train_y, batch_size=32, epochs=3, validation_data=([val_X, val_X_url], val_y))
 pred = model.predict([test_X, test_X_url])
 pred_1d=pred[:,1].flatten()
 pred_class = np.where(pred_1d>0.5,1,0)
