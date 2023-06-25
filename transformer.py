@@ -200,10 +200,10 @@ def get_clf_eval(y_test, pred):
     f1score = 2/(1/precision+1/recall)
     print('Accuracy : {:.4f}\nPrecision : {:.4f}\nRecall : {:.4f}\nf1 score : {:.4f}'.format(accuracy, precision, recall, f1score))
 
-embedding_dim = 64  # 각 단어의 임베딩 벡터의 차원
-num_heads = 8  # 어텐션 헤드의 수
-dff = 256  # 포지션 와이즈 피드 포워드 신경망의 은닉층의 크기
-learning_rate = 5e-6  # 러닝 레이트
+embedding_dim = 512  # 각 단어의 임베딩 벡터의 차원
+num_heads = 6  # 어텐션 헤드의 수
+dff = 2048  # 포지션 와이즈 피드 포워드 신경망의 은닉층의 크기
+learning_rate = e-7  # 러닝 레이트
 number_of_classes = 2 # 분류할 클래스 수
 
 inputs = tf.keras.layers.Input(shape=(maxlen,))
@@ -228,10 +228,10 @@ pred_class = np.where(pred_1d>0.5,1,0)
 get_clf_eval(test_y, pred_class)
 
 # Define the parameters for the model
-embedding_dim = 64
-num_heads = 8
-dff = 128
-learning_rate = 5e-6
+embedding_dim = 512
+num_heads = 6
+dff = 2048
+learning_rate = e-7
 number_of_classes = 2
 
 # Define the input layers for each text source
@@ -282,10 +282,10 @@ pred_class = np.where(pred_1d>0.5,1,0)
 get_clf_eval(test_y, pred_class)
 
 # Define the parameters for the model
-embedding_dim = 64
-num_heads = 8
-dff = 128
-learning_rate = 5e-6
+embedding_dim = 512
+num_heads = 6
+dff = 2048
+learning_rate = e-7
 number_of_classes = 2
 
 # Define the input layers for each text source
@@ -336,10 +336,10 @@ pred_class = np.where(pred_1d>0.5,1,0)
 get_clf_eval(test_y, pred_class)
 
 # Define the parameters for the model
-embedding_dim = 64
-num_heads = 8
-dff = 128
-learning_rate = 5e-6
+embedding_dim = 512
+num_heads = 6
+dff = 2048
+learning_rate = e-7
 number_of_classes = 2
 
 # Define the input layers for each text source
